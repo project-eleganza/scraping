@@ -2,7 +2,7 @@ import fetch from 'node-fetch';
 import { request, gql } from 'graphql-request'
 
 const apiUrl = 'http://localhost:1337'
-const websiteUrl = 'https://www.eleganza-shop.com/fr/enfants/'
+const websiteUrl = 'https://www.eleganza-shop.com/fr/winter-sale/'
 
 // Import de puppeteer
 import puppeteer from 'puppeteer';
