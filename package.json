@@ -1,0 +1,11 @@
+{
+  "type": "module",
+  "dependencies": {
+    "graphql": "^16.3.0",
+    "graphql-request": "^4.0.0",
+    "node-fetch": "^3.2.0",
+    "puppeteer": "^13.3.2",
+    "strapi": "^3.6.8",
+    "strapi-sdk-javascript": "^0.3.3"
+  }
+}
