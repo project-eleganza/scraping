@@ -1,13 +1,14 @@
 import fetch from 'node-fetch';
 import { batchRequests } from 'graphql-request';
 
-const endpoint = 'http://localhost:1337/graphql'
+//const endpoint = 'http://localhost:1337/graphql'
+const endpoint = 'https://strapi-eleganza.herokuapp.com/graphql'
 //const websiteUrl = 'https://www.eleganza-shop.com/fr/chaussures-pour-enfants/baskets' - 11
 //const websiteUrl = 'https://www.eleganza-shop.com/fr/chaussures-pour-enfants/chaussons' - 2
 //const websiteUrl = 'https://www.eleganza-shop.com/fr/chaussures-pour-enfants/claquettes-et-sandales'
 //const websiteUrl = 'https://www.eleganza-shop.com/fr/chaussures-pour-enfants/mocassins' - rien
 //const websiteUrl = 'https://www.eleganza-shop.com/fr/chaussures-pour-enfants/chaussure-de-bebe' - rien
-//const websiteUrl = 'https://www.eleganza-shop.com/fr/chaussures-femme/baskets?page=6'
+//const websiteUrl = 'https://www.eleganza-shop.com/fr/chaussures-femme/baskets?page=7'
 //const websiteUrl = 'https://www.eleganza-shop.com/fr/chaussures-femme/mocassins-et-ballerines' - 5
 //const websiteUrl = 'https://www.eleganza-shop.com/fr/chaussures-femme/escarpins-talons-hauts' - 1
 //const websiteUrl = 'https://www.eleganza-shop.com/fr/chaussures-pour-enfants/baskets'
@@ -20,7 +21,9 @@ const endpoint = 'http://localhost:1337/graphql'
 //const websiteUrl = 'https://www.eleganza-shop.com/fr/vetements-pour-femmes/jurken'
 //const websiteUrl = 'https://www.eleganza-shop.com/fr/vetements-pour-hommes/t-shirts-et-polos?page=5'
 //const websiteUrl = 'https://www.eleganza-shop.com/fr/vetements-pour-hommes/chemises?page=3'
-const websiteUrl = 'https://www.eleganza-shop.com/fr/vetements-pour-hommes/sweats-pulls?page=3'
+//const websiteUrl = 'https://www.eleganza-shop.com/fr/vetements-pour-hommes/sweats-pulls?page=4'
+//const websiteUrl = 'https://www.eleganza-shop.com/fr/vetements-pour-femmes/jassen'
+const websiteUrl = 'https://www.eleganza-shop.com/fr/chaussures-femme/bottillons-bottines'
 
 
 
@@ -442,12 +445,13 @@ const mapping = (data) => {
                             "type": `${data.type ? data.type : ""}`,
                             "conseilTaille": `${data.conseilTaille ? data.conseilTaille : ""}`
                         };
+                        console.log(variables);
                         requests.push({document: data.hauteurTalon ? mutationChaussure : mutationVetement, variables: variables});
                     }
-                    console.log(requests.variables);
                     console.log("nb products add : ", requests.length);
 
                     const response = await batchRequests(endpoint, requests);
+                    console.log(response);
                 }
             } catch (error) {
                 console.log(`error: ${error}`)
